@@ -2,13 +2,21 @@ import sys
 from PyQt5.QtWidgets import QApplication, QWidget, QGridLayout, QPushButton, QVBoxLayout, QMainWindow
 from PyQt5.QtCore import Qt, QMimeData, QPoint
 from PyQt5.QtGui import QDrag
+from Tools.demo.sortvisu import Array
+
+from models.MoveLabel import MoveLabel
+
 
 class DraggableButton(QPushButton):
+    drag_start_position: None
+    move_labels:[]
     def __init__(self, text, parent=None):
         super().__init__(text, parent)
         self.setFixedSize(100, 50)  # 固定按钮的大小
         self.setStyleSheet("background-color: lightgray;")
         self.setAcceptDrops(True)  # 启用拖放
+    def add_(self,index:int, label:MoveLabel):
+        self.move_labels.insert(index, label)
 
     def mousePressEvent(self, event):
         if event.button() == Qt.LeftButton:

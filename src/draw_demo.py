@@ -1,7 +1,5 @@
 from PyQt5.QtGui import QVector3D
 
-from file import load_texture_from_file
-from voxel import Voxel
 
 # 绘制三角形
 def draw_triangle_demo(gl, p1, p2, p3):

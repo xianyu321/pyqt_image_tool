@@ -1,7 +1,10 @@
+import os.path
+
 from PyQt5.QtGui import QVector3D
 
 from file import load_texture_from_file
-from voxel import Voxel
+from tools.load import get_texture_dir
+from tools.voxel import Voxel
 
 # 绘制三角形
 def draw_triangle(gl, triangle, vertices, uvs, o = QVector3D(0,0,0)):
@@ -62,7 +65,7 @@ def draw(gl):
     global is_built, gl_tex
 
     if not is_built:
-        gl_tex = load_texture_from_file("../static/img/dead_tube_coral_block.png")
+        gl_tex = load_texture_from_file(os.path.join(get_texture_dir(), "amethyst_block.png"))
         is_built = True
 
     # 设置z-buff偏移

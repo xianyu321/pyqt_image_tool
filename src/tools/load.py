@@ -34,3 +34,12 @@ def get_img_by_name(img_name):
     if not valid:
         return False
     return image
+
+def get_texture_dir():
+    texture_dir = os.path.join(get_static_dir(), "texture")
+    return texture_dir
+def get_ui_img_path(img_name):
+    ui_dir = os.path.join(get_static_dir(), "ui")
+    img_dir = os.path.join(ui_dir, "img")
+    img_path = os.path.join(img_dir, img_name)
+    return img_path

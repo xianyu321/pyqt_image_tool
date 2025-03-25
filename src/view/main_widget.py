@@ -3,19 +3,8 @@ from PyQt5.QtCore import (QPoint)
 from PyQt5.QtGui import (QMatrix4x4, QVector3D, QOpenGLVersionProfile)
 from PyQt5.QtWidgets import QApplication, QOpenGLWidget
 
-from src.draw import draw_box_faces, draw_filled_cube, draw_box_lines, draw
+from src.draw import draw
 
-
-################################
-#              FILE DESCRIPTION
-#  文件描述：GLWidget
-#  对应文章：Python+OpenGL绘制3D模型（二）程序框架PyQt5
-#  作者：李航 Lihang
-#   1、创建OpenGL环境
-#   2、设置矩阵
-#   3、控制窗口视角
-#   4、调用 draw 绘图主函数
-################################
 class GLWidget(QOpenGLWidget):
     def __init__(self, parent):
         super(GLWidget, self).__init__(parent)
@@ -145,12 +134,6 @@ class GLWidget(QOpenGLWidget):
 
         self.repaint()
 
-
-# =========================
-# App
-# 创建主窗口应用程序
-# 并且进入消息循环
-# =========================
 if __name__ == '__main__':
     app = QApplication(sys.argv)
     widget = GLWidget(None)
