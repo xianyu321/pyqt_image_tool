@@ -1,0 +1,35 @@
+[
+    {
+        "name": "GrassBlock",
+        "faces": {
+            "top": "grass_top_texture",
+            "bottom": "dirt_texture",
+            "front": "grass_side_texture",
+            "back": "grass_side_texture",
+            "left": "grass_side_texture",
+            "right": "grass_side_texture"
+        }
+    },
+    {
+        "name": "StoneBlock",
+        "faces": {
+            "top": "stone_texture",
+            "bottom": "stone_texture",
+            "front": "stone_texture",
+            "back": "stone_texture",
+            "left": "stone_texture",
+            "right": "stone_texture"
+        }
+    },
+    {
+        "name": "WaterBlock",
+        "faces": {
+            "top": "water_texture",
+            "bottom": "water_texture",
+            "front": "water_texture",
+            "back": "water_texture",
+            "left": "water_texture",
+            "right": "water_texture"
+        }
+    }
+]

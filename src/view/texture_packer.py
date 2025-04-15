@@ -5,7 +5,7 @@ from PyQt5 import uic
 from PyQt5.QtGui import QImage
 from PyQt5.QtWidgets import QWidget, QGridLayout, QApplication, QPushButton, QVBoxLayout
 
-from view.block_item import ToolBar3D
+# from view.block_item import ToolBar3D
 from view.main_widget import GLWidget
 from models.ImageMoveWidget import ImageMoveWidget
 from tools.load import get_ui_path, get_texture_dir
@@ -30,8 +30,8 @@ class TexturePacker(QWidget):
         self.box_width = 64  # 固定子框的宽度
         self.box_height = 64  # 固定子框的高度
         self.input_image_btn.clicked.connect(self.add_box)
-        # self.gl_widget = GLWidget(self.main_widget)
-        self.gl_widget = ToolBar3D(self.main_widget)
+        self.gl_widget = GLWidget(self.main_widget)
+        # self.gl_widget = ToolBar3D(self.main_widget)
         layout = QVBoxLayout(self.main_widget)
         layout.addWidget(self.gl_widget)
 
