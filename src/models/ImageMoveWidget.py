@@ -1,12 +1,13 @@
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtWidgets import QWidget, QGridLayout, QSpacerItem, QSizePolicy, QLabel
 
+from enity.ImageItem import ImageItem
 from models.MoveLabel import MoveLabel
 from tools.load import get_ui_img_path
 
 
 class ImageMoveWidget(QWidget):
-    columns = 5 # 总共几列
+    columns = 6 # 总共几列
     def __init__(self, read_olay=False, has_add_label = True):
         super().__init__()
         self.setAcceptDrops(True)  # 允许拖拽
@@ -63,6 +64,18 @@ class ImageMoveWidget(QWidget):
 
     def init_box(self, images: []):
         for item in images:
-            move_label = MoveLabel(image=item)
+            move_label = None
+            if isinstance(item, QImage):
+                move_label = MoveLabel(image=item)
+                self.move_labels.append(move_label)
+            elif isinstance(item, ImageItem):
+                move_label = MoveLabel(image=item.image)
+                self.move_labels.append(move_label)
+            print(item)
             self.move_labels.append(move_label)
         self.rearrange_boxes()
+
+    def getwidth(self):
+        grid_con = MoveLabel.label_show_size * self.columns + (self.columns - 1) * (self.box.horizontalSpacing())
+        grid_width = grid_con + self.box.contentsMargins().left() + self.box.contentsMargins().right()
+        return grid_width

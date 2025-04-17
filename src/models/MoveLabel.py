@@ -6,8 +6,10 @@ from PyQt5.QtWidgets import QLabel, QApplication
 class MoveLabel(QLabel):
     label_width = 64
     label_height = 64
+    label_show_size = 68
     def __init__(self, text = "", parent=None, image:QImage = None):
         super().__init__(text, parent)
+        self.setFixedSize(self.label_show_size, self.label_show_size)
         self.is_selected = False
         self.is_mouse_enter = False
         self.update_style()
