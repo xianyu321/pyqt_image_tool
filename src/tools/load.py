@@ -60,9 +60,18 @@ def get_setting_path():
     return setting_path
 
 def get_setting_input_images_path():
-    input_images_dir = os.path.join(get_setting_path(), OutputConfig.images)
-    ensure_directory_exists(input_images_dir)
-    return input_images_dir
+    input_images_path = os.path.join(get_setting_path(), OutputConfig.images)
+    ensure_directory_exists(input_images_path)
+    return input_images_path
+
+def get_setting_texture_path():
+    texture_path = os.path.join(get_setting_path(), OutputConfig.texture)
+    ensure_directory_exists(texture_path)
+    return texture_path
+def get_setting_blocks_path():
+    blocks_path = os.path.join(get_setting_path(), OutputConfig.blocks)
+    ensure_directory_exists(blocks_path)
+    return blocks_path
 
 def ensure_directory_exists(directory_path):
     """
@@ -72,4 +81,3 @@ def ensure_directory_exists(directory_path):
     if not os.path.exists(directory_path):
         print(f"文件夹不存在，正在创建: {directory_path}")
         os.makedirs(directory_path)  # 递归创建目录
-

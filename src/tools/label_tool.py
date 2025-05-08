@@ -78,16 +78,6 @@ def adjust_position(original_img, target_img, original_pos, alignment='top-left'
         raise ValueError("不支持的对齐方式")
 
     return QPoint(new_x, new_y)
-
-
-# # 示例使用
-# original_size = (800, 600)  # 原始图像尺寸
-# target_size = (1600, 1200)  # 目标图像尺寸
-# original_pos = (400, 300)  # 原始位置
-# new_pos = adjust_position(original_size, target_size, original_pos)
-# print(f"调整后的新位置: {new_pos}")
-
-
 def rect_overflow_clear(rect: QRect, pixmap):
     if rect.left() < 0:
         rect.setLeft(0)

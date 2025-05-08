@@ -3,12 +3,12 @@ from PyQt5.QtGui import QVector3D
 
 class Voxel:
     # 静态属性：顶点坐标和UV值
-    front = 'FRONT'
-    back = 'BACK'
-    top = 'TOP'
-    bottom = 'BOTTOM'
-    left = 'LEFT'
-    right = 'RIGHT'
+    front = 'front'
+    back = 'back'
+    top = 'up'
+    bottom = 'down'
+    left = 'left'
+    right = 'right'
     vertices = [
         QVector3D(-0.5, -0.5, -0.5),  # 0: 左下后
         QVector3D(0.5, -0.5, -0.5),   # 1: 右下后
@@ -28,32 +28,32 @@ class Voxel:
 
     # 静态属性：面索引
     faces = {
-        'FRONT': {
+        'front': {
             'index': 0,
             'vertices_indices': [4, 5, 6, 7],  # 左下前、右下前、右上前、左上前
             'uvs': [(0, 0), (1, 0), (1, 1), (0, 1)]  # 假设使用相同的UV映射
         },
-        'BACK': {
+        'back': {
             'index': 1,
             'vertices_indices': [1, 0, 3, 2],  # 右下后、左下后、左上后、右上后
             'uvs': [(0, 0), (1, 0), (1, 1), (0, 1)]
         },
-        'TOP': {
+        'up': {
             'index': 2,
             'vertices_indices': [7, 6, 2, 3],  # 左上前、右上前、右上后、左上后
             'uvs': [(0, 0), (1, 0), (1, 1), (0, 1)]
         },
-        'BOTTOM': {
+        'down': {
             'index': 3,
             'vertices_indices': [4, 5, 1, 0],  # 左下前、右下前、右下后、左下后
             'uvs': [(0, 0), (1, 0), (1, 1), (0, 1)]
         },
-        'LEFT': {
+        'left': {
             'index': 4,
             'vertices_indices': [0, 4, 7, 3],  # 左下后、左下前、左上前、左上后
             'uvs': [(0, 0), (1, 0), (1, 1), (0, 1)]
         },
-        'RIGHT': {
+        'right': {
             'index': 5,
             'vertices_indices': [5, 1, 2, 6],  # 右下前、右下后、右上后、右上前
             'uvs': [(0, 0), (1, 0), (1, 1), (0, 1)]
@@ -77,6 +77,3 @@ class Voxel:
             vertices_arr.append(face['vertices_indices'])
             uvs_arr.append(face['uvs'])
         return vertices_arr, uvs_arr
-a,b = Voxel.get_all_face()
-# print(a)
-# print(b)

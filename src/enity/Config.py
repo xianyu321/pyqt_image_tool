@@ -14,3 +14,9 @@ class StaticConfig:
 class OutputConfig:
     output = "output"
     images = "images"
+    texture = "texture"
+    blocks = "blocks"
+class JsonConfig:
+    images = "images.json"
+    texture = "texture.json"
+    blocks = "blocks.json"

@@ -1,26 +1,30 @@
-class BlockItem:
-    def __init__(self, name, top=None, bottom=None, front=None, back=None, left=None, right=None):
-        """
-        初始化一个方块对象。
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QImage
 
-        :param name: 方块的名字
-        :param top: 顶面数据（默认为 None）
-        :param bottom: 底面数据（默认为 None）
-        :param front: 前面数据（默认为 None）
-        :param back: 后面数据（默认为 None）
-        :param left: 左侧面数据（默认为 None）
-        :param right: 右侧面数据（默认为 None）
-        """
+from manager.ImagesManager import ImagesManager
+
+
+class BlockItem:
+    text_img = QImage(16, 16, QImage.Format_ARGB32)
+    text_img.fill(Qt.red)
+    def __init__(self, name, left=None, right=None, front=None, back=None, up=None, down=None):
         self.name = name
         self.faces = {
-            "top": top,
-            "bottom": bottom,
+            "left" : left,
+            "right": right,
             "front": front,
             "back": back,
-            "left": left,
-            "right": right
+            "up": up,
+            "down": down
         }
+        self.face_textures = {}
 
+        for key, value in self.faces.items():
+            if value is None:
+                self.face_textures[key] = self.text_img
+            else:
+                img = ImagesManager.get_instance().get_q_image(value)
+                self.face_textures[key] = img
     def set_face(self, face, data):
         """
         设置某个面的数据。
